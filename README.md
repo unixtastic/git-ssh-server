@@ -27,7 +27,7 @@ You may substitute '2222' with any port number of your choosing.
 To add users:
 
 Setup SSH:
-cd /docker_data/git && mkdir .ssh && chmod -R 987 .ssh && chmod -R 700 .ssh
+cd /docker_data/git && mkdir .ssh && chown 987 .ssh && chmod 700 .ssh
 touch .ssh/authorized_keys
 Add user public keys to .ssh/authorized_keys just like you would do for 'normal' SSH.
 
@@ -35,7 +35,7 @@ To setup repos:
 
 cd /docker_data/git/mynewproject.git
 git --bare init
-chown -R 987:987 /docker_data/git/mynewproject.git
+chown -R 987:987 .
 
 Clone the repo from a client:
 git clone ssh://git@myserver:2222/git/mynewproject.git
@@ -46,7 +46,7 @@ mkdir /docker_data/git/git-shell-commands
 chown 987:987 /docker_data/git/git-shell-commands
 chmod 700 /docker_data/git/git-shell-commands
 Add your commands to the above directory. You might want to start with list, which
-you can find under /usr/share/doc on most git clients
+you can find under /usr/share/doc on most git client machines.
 
 Notes:
 ======
