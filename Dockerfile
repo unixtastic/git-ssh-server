@@ -20,6 +20,9 @@ RUN groupadd -g 987 git && useradd -g git -u 987 -d /git -m -r -s /usr/bin/git-s
 RUN sed -i -e 's/.*LogLevel.*/LogLevel VERBOSE/' -e 's/#*PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 RUN sed -i -e 's/#UsePAM.*/UsePAM yes/' /etc/ssh/sshd_config
 
+## Remove /etc/motd
+RUN rm -rf /etc/update-motd.d /etc/motd /etc/motd.dynamic 
+
 ## Clean up
 WORKDIR /
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
