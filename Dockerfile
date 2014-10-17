@@ -22,6 +22,7 @@ RUN sed -i -e 's/#UsePAM.*/UsePAM yes/' /etc/ssh/sshd_config
 
 ## Remove /etc/motd
 RUN rm -rf /etc/update-motd.d /etc/motd /etc/motd.dynamic 
+RUN ln -fs /dev/null /run/motd.dynamic
 
 ## Clean up
 WORKDIR /
