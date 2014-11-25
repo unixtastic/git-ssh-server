@@ -18,7 +18,7 @@ RUN apt-get -qq install git-sh git
 # Setup a git user and SSH
 RUN groupadd -g 987 git && useradd -g git -u 987 -d /git -m -r -s /usr/bin/git-shell git
 RUN sed -i -e 's/.*LogLevel.*/LogLevel VERBOSE/' -e 's/#*PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
-RUN sed -i -e 's/#UsePAM.*/UsePAM yes/' /etc/ssh/sshd_config
+RUN sed -i -e 's/#UsePAM.*/UsePAM no/' /etc/ssh/sshd_config
 
 ## Remove /etc/motd
 RUN rm -rf /etc/update-motd.d /etc/motd /etc/motd.dynamic 

@@ -8,7 +8,7 @@ Build instructions:
 
 git clone https://github.com/unixtastic/git-ssh-server
 
-docker build -t 'unixtastic/git-ssh-server:v1.0' .
+docker build -t 'unixtastic/git-ssh-server' .
 
 Usage instructions:
 ===================
