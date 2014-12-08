@@ -27,13 +27,13 @@ You may substitute '2222' with any port number of your choosing.
 To add users:
 
 Setup SSH:
-cd /docker_data/git && mkdir .ssh && chown 987 .ssh && chmod 700 .ssh
-touch .ssh/authorized_keys
+cd /docker_data/git && mkdir .ssh && chown 987 .ssh && chmod 700 .ssh && touch .ssh/authorized_keys
 Add user public keys to .ssh/authorized_keys just like you would do for 'normal' SSH.
 touch /docker_data/git/.hushlogin to prevent login banners that can confuse git.
 
 To setup repos:
 
+mkdir /docker_data/git/mynewproject.git
 cd /docker_data/git/mynewproject.git
 git --bare init
 chown -R 987:987 .

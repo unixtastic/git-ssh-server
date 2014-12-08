@@ -12,13 +12,15 @@ EXPOSE 22
 MAINTAINER Stephen Day <sd@unixtastic.com>
 WORKDIR /tmp
 RUN apt-get -qq update && apt-get -qq upgrade
-RUN apt-get -qq install git-sh git
+RUN apt-get -qq install git-sh git sharutils
 
 ## Setup service
 # Setup a git user and SSH
 RUN groupadd -g 987 git && useradd -g git -u 987 -d /git -m -r -s /usr/bin/git-shell git
 RUN sed -i -e 's/.*LogLevel.*/LogLevel VERBOSE/' -e 's/#*PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 RUN sed -i -e 's/#UsePAM.*/UsePAM no/' /etc/ssh/sshd_config
+#Set a long random password to unlock the git user account
+RUN usermod -p `dd if=/dev/urandom bs=1 count=30 | uuencode -m - | head -2 | tail -1` git
 
 ## Remove /etc/motd
 RUN rm -rf /etc/update-motd.d /etc/motd /etc/motd.dynamic 
