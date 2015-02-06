@@ -1,7 +1,7 @@
 ## Standard phusion part
 FROM phusion/baseimage:latest
 ENV HOME /root
-RUN /etc/my_init.d/00_regen_ssh_host_keys.sh                            # Uncomment to Enable SSHD
+RUN /etc/my_init.d/00_regen_ssh_host_keys.sh -f                           # Uncomment to Enable SSHD
 #RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh    # Uncomment to Disable SSHD
 CMD ["/sbin/my_init"]
 
