@@ -27,8 +27,10 @@ You may substitute '2222' with any port number of your choosing.
 To add users:
 
 Setup SSH:
-cd /docker_data/git && mkdir .ssh && chown 987 .ssh && chmod 700 .ssh && touch .ssh/authorized_keys
+cd /docker_data/git && mkdir .ssh && chown -R 987 .ssh && chmod -R 700 .ssh && touch .ssh/authorized_keys
+
 Add user public keys to .ssh/authorized_keys just like you would do for 'normal' SSH.
+
 touch /docker_data/git/.hushlogin to prevent login banners that can confuse git.
 
 To setup repos:
@@ -52,6 +54,5 @@ you can find under /usr/share/doc on most git client machines.
 Notes:
 ======
 
-The SSH host keys are generated at the first run of each new container. This will confuse
-some git clients and really should be changed.
+The SSH host keys are generated at the first run of each new container. This will confuse some git clients and really should be changed.
 
