@@ -30,7 +30,7 @@ Setup SSH:
 
     cd /docker_data/git
     mkdir .ssh
-    chown -R 987 .ssh
+    chown -R 987:987 .ssh
     chmod -R 700 .ssh
     touch .ssh/authorized_keys
 
