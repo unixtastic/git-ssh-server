@@ -28,7 +28,11 @@ Add users
 
 Setup SSH:
 
-    cd /docker_data/git && mkdir .ssh && chown -R 987 .ssh && chmod -R 700 .ssh && touch .ssh/authorized_keys
+    cd /docker_data/git
+    mkdir .ssh
+    chown -R 987 .ssh
+    chmod -R 700 .ssh
+    touch .ssh/authorized_keys
 
 Add user public keys to `.ssh/authorized_keys` just like you would do for 'normal' SSH.
 
