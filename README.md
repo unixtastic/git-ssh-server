@@ -33,6 +33,7 @@ Setup SSH:
     chown -R 987:987 .ssh
     chmod -R 700 .ssh
     touch .ssh/authorized_keys
+    chmod 600 .ssh/authorized_keys
 
 Add user public keys to `.ssh/authorized_keys` just like you would do for 'normal' SSH.
 
